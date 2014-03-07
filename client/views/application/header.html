@@ -1,0 +1,23 @@
+<template name="header">
+
+	<nav class="nav navbar-default navbar-fixed-top">
+		<div class="container">
+
+			<a class="navbar-brand">rosterize!</a>
+
+			<!-- Admin Stuff -->
+			{{#if isAdmin}}
+				<ul class="nav navbar-nav">
+					<li><a href="#">Manage Apps</a></li>
+					<li><a href="#">Manage Form</a></li>
+				</ul>
+			{{/if}}
+
+			<!-- Login thing -->
+			<div class="nav navbar-nav pull-right">
+				{{ loginButtons }}
+			</div>
+		</div>
+	</nav>
+
+</template>
