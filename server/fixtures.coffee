@@ -17,18 +17,19 @@ Meteor.startup ->
 			username: 'testUser'
 			email: 'test@user.com'
 			password: 'test'
-
+			
 	if Apps.find().count() is 0
 
 		appUser = Meteor.users.findOne({'username':'testUser'})
 
-		console.log "No apps found, creating test app using testUser (id = #{{appUser._id}}"
+		# console.log "No apps found, creating test app using testUser (id = #{{appUser._id}}"
+		
 		testApp = 
 			userId: appUser._id
 			questions: [
 				{
 					question: 'What is your name?'
-					response: theUser.username
+					response: appUser.username
 				},
 				{
 					question: 'What is your quest?'

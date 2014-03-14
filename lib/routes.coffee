@@ -6,3 +6,7 @@ Router.map ->
 
 	@route 'home',
 		path: '/'
+		
+	@route 'admin',
+		path: 'admin',
+		controller: AdminController
