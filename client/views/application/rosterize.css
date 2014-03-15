@@ -1,3 +1,11 @@
 .page-container {
 	padding-top: 60px;
 }
+
+.form-container {
+	padding-top: 10px;
+}
+
+.form-container button {
+	margin-top: 10px;
+}

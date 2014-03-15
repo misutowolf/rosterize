@@ -1,1 +1,1 @@
-@Form = new Meteor.Collection 'form'
+@Questions = new Meteor.Collection 'questions'

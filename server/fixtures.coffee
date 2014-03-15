@@ -43,24 +43,23 @@ Meteor.startup ->
 
 		Apps.insert testApp
 		
-	if Form.find().count() is 0
+	if Questions.find().count() is 0
 		
 		console.log "No form found, creating a sample form, based on sample app"
 		
-		testForm =
-			questions: [
-				{
-					order: 1
-					question: "What is your name?"
-				},
-				{
-					order: 2
-					question: "What is your quest?"
-				},
-				{
-					order: 3
-					question: "What is your favorite color?"
-				}
-			]
+		theQuestions = [
+			{
+				order: 1
+				question: "What is your name?"
+			},
+			{
+				order: 2
+				question: "What is your quest?"
+			}
+			{
+				order: 3
+				question: "What is your favorite color?"
+			}
+		]
 			
-		Form.insert testForm
+		Questions.insert question for question in theQuestions
