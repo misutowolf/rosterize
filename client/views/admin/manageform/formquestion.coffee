@@ -4,8 +4,6 @@ Template.formQuestion.helpers
 
 		maxOrder = Questions.findOne({},{sort: {"order", 1}}).order
 		questionOrder = Questions.findOne(this._id, {fields: {'order': 1}}).order
-
-		console.log "max order: #{maxOrder}, current order: #{questionOrder}"
 		
 		# Check to see what arrows to render
 		if questionOrder == 1
@@ -19,11 +17,12 @@ Template.formQuestion.helpers
 Template.formQuestion.events
 
 	'click #down': ->
-		thisOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
-		alert "calling moveDown on question #{thisOrder}"
-		Meteor.call('moveDown',thisOrder)
+		beforeOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
+		Meteor.call('moveDown',beforeOrder)
+		afterOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
+		
 
 	'click #up': ->
-		thisOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
-		alert "calling moveUp on question #{thisOrder}"
-		Meteor.call('moveUp',thisOrder)
+		beforeOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
+		Meteor.call('moveUp',beforeOrder)
+		afterOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
