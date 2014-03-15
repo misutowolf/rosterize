@@ -8,5 +8,9 @@ Router.map ->
 		path: '/'
 		
 	@route 'admin',
-		path: 'admin',
+		path: '/admin',
+		controller: AdminController
+		
+	@route 'manageForm',
+		path: '/admin/manageform',
 		controller: AdminController

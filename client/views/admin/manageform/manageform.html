@@ -1,0 +1,12 @@
+<template name="manageForm">
+	<div class="row">
+		<div class="col-md-9">
+			{{#each questions}}
+				{{> formQuestion }}
+			{{/each}}
+		</div>
+		<div class="col-md-3">
+			Question box here.
+		</div>
+	</div>
+</template>
