@@ -17,12 +17,9 @@ Template.formQuestion.helpers
 Template.formQuestion.events
 
 	'click #down': ->
-		beforeOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
-		Meteor.call('moveDown',beforeOrder)
-		afterOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
-		
+		theQuestion = this._id
+		Meteor.call('moveDown', theQuestion)
 
 	'click #up': ->
-		beforeOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
-		Meteor.call('moveUp',beforeOrder)
-		afterOrder = Questions.findOne(this._id, {fields: {"order":1}}).order
+		theQuestion = this._id
+		Meteor.call('moveUp', theQuestion)
