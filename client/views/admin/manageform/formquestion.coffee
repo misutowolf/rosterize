@@ -7,19 +7,25 @@ Template.formQuestion.helpers
 		
 		# Check to see what arrows to render
 		if questionOrder == 1
-			"<i class='fa fa-chevron-circle-down' id='down'></i>"
+			"<i class='fa fa-chevron-circle-down down'></i>"
 		else if questionOrder < maxOrder
-			"<i class='fa fa-chevron-circle-up' id='up'></i> | <i class='fa fa-chevron-circle-down' id='down'></i>"
+			"<i class='fa fa-chevron-circle-up up'></i> | <i class='fa fa-chevron-circle-down down'></i>"
 		else
-			"<i class='fa fa-chevron-circle-up' id='up'></i>"
+			"<i class='fa fa-chevron-circle-up up'></i>"
 
 
 Template.formQuestion.events
 
-	'click #down': ->
+	'click .down': ->
 		theQuestion = this._id
 		Meteor.call('moveDown', theQuestion)
 
-	'click #up': ->
+	'click .up': ->
 		theQuestion = this._id
 		Meteor.call('moveUp', theQuestion)
+
+	'click .delete-link': (e) ->
+		e.preventDefault()
+		theQuestion = this._id
+		if confirm("Are you sure you want to delete this question?")
+			Meteor.call('removeQuestion',theQuestion)
